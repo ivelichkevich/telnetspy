@@ -269,7 +269,7 @@ int TelnetSpy::available (void) {
 }
 
 int TelnetSpy::read (void) {
-	int val;
+	int val = -1;
 	if (usedSer) {
 		val = usedSer->read();
 		if (val != -1) {
@@ -285,7 +285,7 @@ int TelnetSpy::read (void) {
 }
     
 int TelnetSpy::peek (void) {
-	int val;
+	int val = -1;
 	if (usedSer) {
 		val = usedSer->peek();
 		if (val != -1) {
