@@ -207,6 +207,7 @@ class TelnetSpy : public Stream {
 #else	// ESP32
 		void begin(unsigned long baud, uint32_t config=SERIAL_8N1, int8_t rxPin=-1, int8_t txPin=-1, bool invert=false);
 #endif
+        void disconnect();
 		void end();
 #ifdef ESP8266
 		void swap() { swap(1); }

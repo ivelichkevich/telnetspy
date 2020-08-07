@@ -326,6 +326,17 @@ void TelnetSpy::begin(unsigned long baud, uint32_t config, int8_t rxPin, int8_t 
 
 #endif
 
+void TelnetSpy::disconnect() {
+    if (client.connected()) {
+        client.flush();
+        client.stop();
+    }
+    if (connected && (callbackDisconnect != NULL)) {
+        callbackDisconnect();
+    }
+    connected = false;
+}
+
 void TelnetSpy::end() {
 	if (debugOutput) {
 		setDebugOutput(false);
